@@ -6,7 +6,7 @@ install: make init
 script: make test
 after_sucess:
     - . ./p3_7env/bin/activate
-    - overalls
+    - coveralls
 
 
 notifications:
