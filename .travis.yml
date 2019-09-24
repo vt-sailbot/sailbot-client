@@ -5,4 +5,4 @@ node_js:
 notifications:
   slack:
     rooms:
-      - virginia-tech-sailbot:7TUtMKl4iXUIRxEy0YAhrsVk#website
+      - virginia-tech-sailbot:7TUtMKl4iXUIRxEy0YAhrsVk#client
