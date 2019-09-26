@@ -9,15 +9,19 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1450,
     height: 600,
+    minWidth: 1450,
+    minHeight: 600,
+    frameless: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true // true: security issue
     }
   })
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // and load the main.html of the app.
+  mainWindow.loadFile('main.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
