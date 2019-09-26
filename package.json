@@ -1,0 +1,15 @@
+{
+  "name": "sailbot-client",
+  "version": "1.0.0",
+  "description": "Sailbot shoreside client interface and controls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/vt-sailbot/sailbot-client",
+  "author": "VT Sailbot",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^6.0.10"
+  }
+}
