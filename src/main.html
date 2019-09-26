@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!--Created by the Virginia Tech SailBOT team
+    For temporary use only, needs to be refactored into components
+
+    Licensed under the MIT License-->
+  <head>
+    <!--Link CSS/js here-->
+    <meta charset="UTF-8">
+    <title>SailBOT Client</title>
+
+    <!-- Interface CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/circle.css">
+
+	  <link rel="stylesheet" href="assets/css/sailbot.style.css">
+
+    <!-- TODO: Get node modules working for these.
+    Problem with electron nodeIntegration: False and require()-->
+    <!-- JS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="assets/js/fontawesome/fontawesome.js"></script>
+    <script defer src="assets/js/fontawesome/solid.js"></script>
+
+    <!--SailBOT Components scripts-->
+  </head>
+  <body>
+    <!-- TODO Replace default application bar with a custom Sailbot bar-->
+    <!-- TODO Darkmode toggle(in settings maybe?)-->
+
+    <!-- TODO Popup bootstrap/toast? when button for ssh, logs, and settings are clicked-->
+    <!-- TODO Console popup -->
+    <!-- TODO Logger popup-->
+    <!-- TODO Settings popup-->
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-toggleable-sm navbar-fixed-top navbar-light bg-light main-nav">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group" role="group">
+                <!-- TODO: Button to toggle between RC/Autonomous when pressed-->
+                <button type="button" class="btn btn-outline-dark" id="rcToggle" data-toggle="tooltip"
+                  data-placement="bottom" title="Swap between RC input and Automomous navigation" data-trigger="hover">
+                  <i class="fa fa-fw fa-gamepad"></i> RC Input
+                </button>
+                <!-- TODO: Button to toggle between camera view/sensor view when pressed-->
+                <button type="button" class="btn btn-outline-dark" id="viewToggle" data-toggle="tooltip"
+                  data-placement="bottom" title="Swap between sensor and camera view" data-trigger="hover">
+                  <i class="fa fa-fw fa-camera"></i> Show Sensors
+                </button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#consolePopup"
+                  rel="tooltip" data-placement="bottom" title="Opens Terminal/Console window">
+                  <i class="fa fa-fw fa-terminal"></i> Console
+                </button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loggerPopup"
+                  rel="tooltip" data-placement="bottom" title="Opens logger window">
+                  <i class="fa fa-fw fa-clipboard-list"></i> Logs
+                </button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#settingsPopup"
+                  rel="tooltip" data-placement="bottom" title="Opens settings window">
+                  <i class="fa fa-fw fa-cog"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="inline">
+          <!-- TODO: Connected fa fa-fw fa-link-->
+          <span class="d-inline-block" rel="tooltip" data-placement="bottom"
+          title="Boat connection status">
+          <button type="button" id="boat_status" class="btn btn-danger"
+            style="pointer-events: none">
+            <i class="fa fa-fw fa-unlink"></i> Disconnected
+          </button>
+        </span>
+          <div class="btn-group dropdown" role="group">
+            <button id="powerButtonDropdown" type="button" class="btn btn-outline-danger dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-fw fa-power-off"></i> Power
+            </button>
+            <!-- TODO: dropdown menu for power goes here w/ shutdown/reboot-->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- CONTENT -->
+    <!-- TODO: System monitor on the left-->
+    <!-- TODO: Views (sensor,camera,world, etc) in the center-->
+    <!-- TODO: Add waypoint to the right-->
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
