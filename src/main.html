@@ -32,6 +32,7 @@
     <script defer src="assets/js/fontawesome/solid.js"></script>
 
     <!--SailBOT Components scripts-->
+    <script src="components/logger/logger.js"></script>
   </head>
   <body>
     <!-- TODO Replace default application bar with a custom Sailbot bar-->
@@ -54,16 +55,11 @@
                   data-placement="bottom" title="Swap between RC input and Automomous navigation" data-trigger="hover">
                   <i class="fa fa-fw fa-gamepad"></i> RC Input
                 </button>
-                <!-- TODO: Button to toggle between camera view/sensor view when pressed-->
-                <button type="button" class="btn btn-outline-dark" id="viewToggle" data-toggle="tooltip"
-                  data-placement="bottom" title="Swap between sensor and camera view" data-trigger="hover">
-                  <i class="fa fa-fw fa-camera"></i> Show Sensors
-                </button>
                 <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#consolePopup"
                   rel="tooltip" data-placement="bottom" title="Opens Terminal/Console window">
                   <i class="fa fa-fw fa-terminal"></i> Console
                 </button>
-                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loggerPopup"
+                <button type="button" onclick="toggleLoggerWindow()" class="btn btn-outline-dark" data-toggle="modal" data-target="#loggerPopup"
                   rel="tooltip" data-placement="bottom" title="Opens logger window">
                   <i class="fa fa-fw fa-clipboard-list"></i> Logs
                 </button>
