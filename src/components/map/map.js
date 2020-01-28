@@ -12,38 +12,45 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 var MapIcon = L.Icon.extend({
     options: {
         iconSize:     [38, 38],
-        iconAnchor:   [22, 94],
-        popupAnchor:  [-3, -76]
+        iconAnchor:   [38, 38],
+        popupAnchor:  [0, 0]
     }
 });
 
 var boatIcon = new MapIcon({iconUrl: 'assets/boat-icon.png'}),
-    bouyIcon = new MapIcon({iconUrl: 'assets/bouy-icon.png'});
+    buoyIcon = new MapIcon({iconUrl: 'assets/buoy-icon.png'});
 
-var boatCoords = [42.85, -70.98] // temporary boat coords, to be updated by socket.
-L.marker([42.85, -70.98], {icon: boatIcon}).addTo(mymap).bindPopup("Display boat information here:");
+var boatCoords = [42.8490613, -70.9837522] // temporary boat coords, to be updated by socket.
+L.marker(boatCoords, {icon: boatIcon}).addTo(mymap);
+var buoyCoords = Array();
+buoyCoords.push([42.851613, -70.9837522]);
+buoyCoords.push([42.852613, -70.9837522]);
 
-var bouyCoords = [[40.85, -70.90], [41.85, -69.90]]
-
-for (var i = 0; i < bouyCoords.length; i++) {
-    L.marker(bouyCoords[i], {icon: bouyIcon}).addTo(mymap).binPopup("Display bouy information here:");
+for (var i = 0; i < buoyCoords.length; i++) {
+    L.marker(buoyCoords[i], {icon: buoyIcon}).addTo(mymap);
 }
 
 var popup = L.popup();
-
-var waypoints = new Array();
+var waypoints = Array();
+var polyline = L.polyline([boatCoords]).addTo(mymap);
 
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
         .setContent("Setting marker at " + e.latlng.toString())
         .openOn(mymap);
-    newPoint = L.marker(e.latlng);
-    newPoint.addTo(mymap);
-    waypoints.push(newPoint);
+    var currPoint = new L.marker(e.latlng);
+    waypoints.push(currPoint);
+    currPoint.addTo(mymap)
+    polyline.addLatLng(e.latlng);
+    
+    // console.log(waypoints.length)
 }
-// add markers to list, draw path between boat to ordered waypoints. Ability to remove markers. Remove markers once boat passes icon.
 
+
+
+
+// add markers to list, draw path between boat to ordered waypoints. Ability to remove markers. Remove markers once boat passes icon.
 mymap.on('click', onMapClick);
 
 // right click on map to display geographical data (wind dir/speed,)

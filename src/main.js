@@ -9,10 +9,10 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1450,
-    height: 600,
-    minWidth: 1450,
-    minHeight: 600,
+    width: 800,
+    height: 800,
+    minWidth: 700,
+    minHeight: 700,
     frameless: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -44,7 +44,8 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') app.quit()
+  // if (process.platform !== 'darwin') app.quit()
+  app.quit()
 })
 
 app.on('activate', function () {
