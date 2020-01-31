@@ -16,6 +16,6 @@ function toggleLoggerWindow() {
     if (loggerWindow === null) {
         createLoggerWindow();
     } else {
-        loggerWindow
+        loggerWindow.focus();
     }
 }
