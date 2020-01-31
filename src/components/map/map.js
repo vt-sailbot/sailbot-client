@@ -21,13 +21,13 @@ var boatIcon = new MapIcon({iconUrl: 'assets/boat-icon.png'}),
     buoyIcon = new MapIcon({iconUrl: 'assets/buoy-icon.png'});
 
 var boatCoords = [42.8490613, -70.9837522] // temporary boat coords, to be updated by socket.
-L.marker(boatCoords, {icon: boatIcon}).addTo(mymap);
+L.marker(boatCoords, {icon: boatIcon}).addTo(mymap).bindPopup("boat info");
 var buoyCoords = Array();
 buoyCoords.push([42.851613, -70.9837522]);
 buoyCoords.push([42.852613, -70.9837522]);
 
 for (var i = 0; i < buoyCoords.length; i++) {
-    L.marker(buoyCoords[i], {icon: buoyIcon}).addTo(mymap);
+    L.marker(buoyCoords[i], {icon: buoyIcon}).addTo(mymap).bindPopup("buoy info");
 }
 
 var popup = L.popup();
@@ -37,9 +37,9 @@ var polyline = L.polyline([boatCoords]).addTo(mymap);
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
-        .setContent("Setting marker at " + e.latlng.toString())
+        .setContent("Marker at " + e.latlng.toString())
         .openOn(mymap);
-    var currPoint = new L.marker(e.latlng);
+    var currPoint = new L.marker(e.latlng).bindPopup(popup);
     waypoints.push(currPoint);
     currPoint.addTo(mymap)
     polyline.addLatLng(e.latlng);
