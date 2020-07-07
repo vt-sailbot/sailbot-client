@@ -10,7 +10,7 @@
   "author": "VT Sailbot",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.10"
+    "electron": "^9.1.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
